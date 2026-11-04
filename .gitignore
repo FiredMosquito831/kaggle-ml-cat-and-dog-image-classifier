@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+*.png
+!figure*.png
+
+# dataset (fetched, not part of the code)
+PetImages/
+*.zip
+*.pt
+cat_dog_cnn.pt

@@ -1,0 +1,35 @@
+# interpreter: /c/Users/fgghk/Downloads/completing courses/projects-ours/.venv/Scripts/python.exe
+# command: "/c/Users/fgghk/Downloads/completing courses/projects-ours/.venv/Scripts/python.exe" test_local.py
+
+C:\Users\fgghk\Downloads\completing courses\projects-ours\.venv\Lib\site-packages\PIL\TiffImagePlugin.py:982: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+cats vs dogs image classifier local tests
+======================================================================
+device: cuda
+PASS  dataset folders exist   [cat=True]
+PASS  dataset is the full ~12,500 + ~12,500 image set   [cat=12499 dog=12499]
+PASS  declared output shape is (None, 1)   [(None, 1)]
+PASS  a forward pass yields a (batch, 1) tensor   [(4, 1)]
+PASS  a forward pass yields a (batch, 1) tensor on GPU   [shape is layout-independent]
+
+training a bounded subset on cuda ...
+train=3,200  val=800
+PASS  4/5 of 2000+2000 train, 1/5 validate   [train=3200 val=800]
+  epoch 1/4  loss 0.9740  val_acc 0.570  (31.0s)
+  epoch 2/4  loss 0.6368  val_acc 0.671  (29.8s)
+  epoch 3/4  loss 0.6064  val_acc 0.719  (32.3s)
+  epoch 4/4  loss 0.5808  val_acc 0.705  (30.9s)
+val accuracy (4 epochs, 2000/class subset): 0.7050
+PASS  subset val accuracy far above chance (>= 0.60)   [0.7050]
+50-image accuracy (subset model, own val split): 0.7600
+PASS  subset 50-image accuracy far above chance (>= 0.55)   [0.7600]
+PASS  predict_image returns 'cat' or 'dog'   [dog/dog]
+PASS  predict_dir labels all 10 cats and 10 dogs without error
+
+validating the saved checkpoint cat_dog_cnn.pt
+PASS  full model val accuracy >= 0.63 (spec)   [0.7514]
+PASS  full model 50-image test >= 0.70 (spec)   [0.7800]
+PASS  10 real cats: >= 7 called cats   [8/10]
+PASS  10 real dogs: >= 7 called dogs   [7/10]
+======================================================================
+SUMMARY: 14 passed, 0 failed
